@@ -1,0 +1,233 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root{
+    --cor-fundo: #111827;
+    --cor-painel: #1F2937;
+    --cor-fundo-botao: #374151;
+    --cor-destaque: #3B82F6;
+    --cor-destaque-interacao: #2563EB;
+    --cor-texto: #F9FAFB;
+    --cor-texto-secundario: #9CA3AF;
+    --cor-erro: #F87171;
+
+    --fonte-texto: 'Inter', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    font-family: var(--fonte-texto);
+    background-color: #2e2d2d;
+}
+
+#container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.base-calculadora{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.calculadora{
+    background-color: var(--cor-fundo);
+    width: 100%;
+    max-width: 400px;
+    min-height: 400px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    box-shadow: -10px 10px 0 #0B1220, -10px 10px 0 #080D17, -30px 30px 20px #00000049,  -3px 10px 0 #0B1220;
+    animation: entrada3D 900ms ease-out both;
+    transform: rotateX(3deg) rotateY(-5deg);
+    border-left: 1px solid #020811;
+    border-bottom: 1px solid #020811;
+}
+
+@keyframes entrada3D {
+    from {
+        opacity: 0;
+        transform: translateY(20px) perspective(1000px)  rotateX(10deg) rotateY(-12deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) perspective(1000px) rotateX(10deg) rotateY(8deg);
+    }
+}
+
+#resultado{
+    background-color: var(--cor-painel);
+    height: 75px;
+    border-radius: 10px;
+}
+
+.botoes-calc{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.botoes-calc button{
+    cursor: pointer;
+    min-height: 70px;
+    border-radius: 10px;
+    border-top: none;
+    border-right: none;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: transform .2s, background-color .2s ease-out, box-shadow .2s ease, border .2s;
+}
+
+.botoes-calc button:active{
+    transform: translateY(3px) scale(0.95);
+}
+
+.botao-num{
+    background-color: var(--cor-fundo-botao);
+    color: var(--cor-texto);
+    box-shadow: -5px 5px 0px #2c3442;
+    border-left: 1px solid #606368;
+    border-bottom: 1px solid #606368;
+}
+
+.botao-num:hover{
+    background-color: #394252;
+}
+
+.botao-num:active{
+    box-shadow: -3px 2px 0px #2c3442;
+    border-left: 1px solid #5a5e63;
+    border-bottom: 1px solid #5f6368;
+}
+
+.botao-opera{
+    color: var(--cor-texto);
+    background-color: var(--cor-destaque-interacao);
+    box-shadow: -5px 5px 0px #1c57b6;
+    border-left: 1px solid #4886eb;
+    border-bottom: 1px solid #4886eb;
+}
+
+.botao-opera:hover{
+    background-color: #296bfa;
+}
+
+.botao-opera:active{
+    box-shadow: -3px 2px 0px #1c57b6;
+    border-left: 1px solid #417cdb;
+    border-bottom: 1px solid #417cdb;
+}
+
+.btn16{
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    background-color: #cdcdce;
+    box-shadow: -5px 5px 0px #b2b2b4;
+    border-left: 1px solid #a2a3a3;
+    border-bottom: 1px solid #a2a3a3;
+}
+
+.btn16:hover{
+    background-color: #c5c5c7;
+}
+
+.btn16:active{
+    box-shadow: -3px 2px 0px #b2b2b4;
+    border-left: 1px solid #9fa0a0;
+    border-bottom: 1px solid #9fa0a0;
+}
+
+.btn15{
+    grid-row: 1;
+    grid-column: 3 / span 1;
+}
+
+.btn14{
+    grid-row: 1;
+    grid-column: 4 / span 1;
+
+}
+
+.btn8{
+    grid-row: 2;
+    grid-column: 1 / span 1;
+}
+
+.btn9{
+    grid-row: 2;
+    grid-column: 2 / span 1;
+}
+
+.btn10{
+    grid-row: 2;
+    grid-column: 3 / span 1;
+}
+
+.btn13{
+    grid-row: 2;
+    grid-column: 4 / span 1;
+}
+
+.btn5{
+    grid-row: 3;
+    grid-column: 1 / span 1;
+}
+
+.btn6{
+    grid-row: 3;
+    grid-column: 2 / span 1;
+}
+
+.btn7{
+    grid-row: 3;
+    grid-column: 3 / span 1;
+}
+
+.btn12{
+    grid-row: 3;
+    grid-column: 4 / span 1;
+}
+
+.btn2{
+    grid-row: 4;
+    grid-column: 1 / span 1;
+}
+
+.btn3{
+    grid-row: 4;
+    grid-column: 2 / span 1;
+}
+
+.btn4{
+    grid-row: 4;
+    grid-column: 3 / span 1;
+}
+
+.btn11{
+    grid-row: 4 / span 2;
+    grid-column: 4;
+}
+
+.btn1{
+    grid-row: 5;
+    grid-column: 1 / span 2;
+}
+
+.btn17{
+    grid-row: 5;
+    grid-column: 3 / span 1;
+}
