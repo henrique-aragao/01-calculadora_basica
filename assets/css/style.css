@@ -18,6 +18,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: 1px solid re;
 }
 
 body, html{
@@ -55,6 +56,31 @@ body, html{
     transform: rotateX(3deg) rotateY(-5deg);
     border-left: 1px solid #020811;
     border-bottom: 1px solid #020811;
+    position: relative;
+}
+
+.calculadora::before{
+    position: absolute;
+    content: "";
+    bottom: -11px;
+    left: -8px;
+    background-color: #111725;
+    width: 10px;
+    height: 15px;
+    transform: rotate(40deg);
+    border-radius: 2px 2px 10px 10px;
+}
+
+.calculadora::after{
+    position: absolute;
+    content: "";
+    bottom: -9px;
+    right: 1px;
+    background-color: #111725;
+    width: 10px;
+    height: 11px;
+    transform: rotate(-5deg);
+    border-radius: 10px 0px 10px 0px;
 }
 
 @keyframes entrada3D {
@@ -71,14 +97,41 @@ body, html{
 
 #resultado{
     background-color: var(--cor-painel);
-    height: 75px;
+    height: 80px;
     border-radius: 10px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+#info{
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--cor-texto-secundario);
+    line-height: 1;
+    user-select: none;
+}
+
+#res{
+    align-self: flex-end;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    line-height: 1;
+}
+
+#res.erro{
+    color: var(--cor-erro);
+    font-size: 1.4rem;
 }
 
 .botoes-calc{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+    
 }
 
 .botoes-calc button{
@@ -89,11 +142,12 @@ body, html{
     border-right: none;
     font-size: 2rem;
     font-weight: 600;
-    transition: transform .2s, background-color .2s ease-out, box-shadow .2s ease, border .2s;
+    transition: transform .3s, background-color .2s ease-out, box-shadow .2s ease, border .2s;
+    font-family: var(--fonte-texto);
 }
 
 .botoes-calc button:active{
-    transform: translateY(3px) scale(0.95);
+    transform: translateY(6px) scale(0.95);
 }
 
 .botao-num{
